@@ -47,7 +47,7 @@ export class AuthService {
     const user = await this.create(newUserDto);
     return {
       user,
-      token: this.getJwtToken({id: user._id})
+      token: this.getJwtToken({ id: user._id }),
     };
   }
 
@@ -66,7 +66,7 @@ export class AuthService {
   }
 
   findAll() {
-    return `This action returns all auth`;
+    return this.userModel.find();
   }
 
   findOne(id: number) {
