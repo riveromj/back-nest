@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   UseGuards,
+  Request,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -36,7 +37,8 @@ export class AuthController {
 
   @UseGuards(AuthGuard)
   @Get()
-  findAll() {
+  findAll(@Request() req: Request) {
+   // const user = req['user'];
     return this.authService.findAll();
   }
 
